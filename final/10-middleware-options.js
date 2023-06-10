@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
-const morgan = require('morgan')
+// const morgan = require('morgan')
 const logger = require('./logger')
 const authorize = require('./authorize')
 //  req => middleware => res
 
-// app.use([logger, authorize])
+app.use([logger, authorize]) //order matters
 // app.use(express.static('./public'))
-app.use(morgan('tiny'))
+// app.use(morgan('tiny'))
 
 app.get('/', (req, res) => {
   res.send('Home')
